@@ -1,0 +1,80 @@
+Step 1 :
+Install Node.js on Machine
+
+Step 2:
+Create package.json file using NMP from command propmt. Right click on solution and click open command line and select Developer Command Prompt
+
+npm init -y
+
+Step 3: 
+Install Webpack Right click on solution and click open command line and select Developer Command Prompt
+npm install webpack --save-dev
+
+Step 4:
+Install webpack-cli. Right click on solution and  click on Quick Install package.
+npm install webpack-cli --save-dev
+
+Step 5:
+Install @types/Jquery. Right click on solution and  click on Quick Install package.
+npm install jquery --save-dev
+
+Step 6:
+Install Babel and Other Packages
+npm install babel-core babel-loader --save-dev
+npm install babel-preset-es2015 --save-dev
+npm install babel-preset-stage-0 --save-dev
+npm install babel-polyfill --save
+
+npm install babel-runtime --save
+npm install babel-plugin-transform-runtime --save-dev
+
+Step 7:
+Create a webpack.config.js file and add the script file. Here we are creating multiple bundling file. Please check webpack.config.file
+
+var path = require("path");
+const webpack = require('webpack');
+
+module.exports = {
+    mode:"development", // production
+    //entry:{
+	//   entry1Js: ".Path",
+	//   entry2js:".Path"
+	//},
+    entry: 
+        [
+            "./wwwroot/corejs/movie.js",
+            "./wwwroot/corejs/main.js"
+        ]
+    ,
+    output: {
+        publicPath: "/js/",
+        path: path.join(__dirname, "/wwwroot/js/"),
+        //filename: "[name].build.js",
+        filename: "bundle.js",
+        library: 'appGlobal'
+    }
+    //,
+    //module: {
+    //    loaders: [{
+    //        exclude: /node_modules/,
+    //        loader: "babel-loader",
+    //        query: {
+    //            presets: ["es2015", "stage-1"]
+    //        }
+    //    }]
+    //}
+};
+
+Step 9:
+go to package.json file and add following command on script section
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wbp": "webpack"
+  }
+
+Step 10:
+Write a .js files
+
+Step 11:
+execute following command to run webpack
+npm run wbp.

@@ -1,0 +1,27 @@
+﻿@model Sol_Babel_WebPack.ViewModel.MovieViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<input id="movieList" type="hidden" data-movielist="@Model.ListMovieJson" />
+
+<div class="container">
+    <div id="divMovieRow" class="row">
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+
+        $(document).ready(function () {
+
+            console.log("Dom is Ready");
+
+            appGlobal.OnMainLoad();
+        });
+    </script>
+
+}
